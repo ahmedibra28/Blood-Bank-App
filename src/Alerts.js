@@ -27,6 +27,11 @@ class Alerts extends Component {
       error.msg.bag && alert.error(`Bag: ${error.msg.bag}`);
       error.msg.hb && alert.error(`HB: ${error.msg.hb}`);
       error.msg.non_field_errors && alert.error(error.msg.non_field_errors);
+      error.msg.plasma && alert.error(`Plasma: ${error.msg.plasma}`);
+      error.msg.platelet && alert.error(`Platelet: ${error.msg.platelet}`);
+      error.msg.rbc && alert.error(`RBC: ${error.msg.rbc}`);
+      error.msg.whole_blood && alert.error(`Whole blood: ${error.msg.whole_blood}`);
+
     }
     if (message !== prevProps.message) {
       message.changePassword && alert.success(message.changePassword);
@@ -36,6 +41,10 @@ class Alerts extends Component {
       message.deleteInventory && alert.success(message.deleteInventory);
       message.addInventory && alert.success(message.addInventory);
       message.updateInventory && alert.success(message.updateInventory);
+
+      message.deleteRequest && alert.success(message.deleteRequest);
+      message.addRequest && alert.success(message.addRequest);
+      message.updateRequest && alert.success(message.updateRequest);
     }
   }
 

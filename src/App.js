@@ -9,7 +9,8 @@ import Login from "./components/accounts/Login";
 import Register from "./components/accounts/Register";
 import ChangePassword from "./components/accounts/ChangePassword";
 import ResetPassword from "./components/accounts/ResetPassword";
-import Inventory from "./components/employee/Inventory";
+import Inventory from "./components/inventory/Inventory";
+import Request from "./components/request/Request"
 
 
 import PrivateRoute from "./components/common/PrivateRoute";
@@ -55,17 +56,18 @@ function App () {
               <Layout>
                 <Switch>
                   <PrivateRoute exact path="/" component={Dashboard} />{" "}
-                  <Route exact path="/login" component={Login} />{" "}
+                  <Route path="/login" component={Login} />{" "}
                   <Route
-                    exact
+                  
                     path="/reset-password"
                     component={ResetPassword}
                   />{" "}
 
-                  <Route exact path="/register" component={Register} />{" "}
-                  <PrivateRoute exact path="/inventory" component={Inventory} />{" "}
+                  <Route path="/register" component={Register} />{" "}
+                  <PrivateRoute path="/inventory" component={Inventory} />{" "}
+                  <PrivateRoute path="/request" component={Request} />{" "}
                   <PrivateRoute
-                    exact
+                  
                     path="/change-password"
                     component={ChangePassword}
                   />{" "}
