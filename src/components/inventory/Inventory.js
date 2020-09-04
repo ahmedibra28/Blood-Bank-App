@@ -69,18 +69,17 @@ function Inventory(props) {
       useEffect(() => {
         if (Object.keys(errors).length === 0 && isSubmitting) {
 
-          // const newValues = {
-          //   id: values.id,
-          //   donor: values.donor,
-          //   hb: values.hb,
-          //   blood_group: values.blood_group,
-          //   blood_component: values.blood_component,
-          //   unit: values.unit,
-          //   bag:values.bag,
-          // }
+          const newValues = {
+            id: values.id,
+            donor: values.donor,
+            hb: values.hb,
+            blood_group: values.blood_group,
+            blood_component: values.blood_component,
+            unit: values.unit,
+            bag:values.bag.toUpperCase(),
+          }
 
-          edit ? updateInventory(values) : addInventory(values);
-          console.log(values)
+          edit ? updateInventory(newValues) : addInventory(newValues);
           setEdit(false);
           setValues({
             ...values,

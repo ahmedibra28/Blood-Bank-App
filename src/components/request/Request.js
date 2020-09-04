@@ -16,10 +16,10 @@ const initialValues = {
     patient_id: "",
     patient_name: "",
     blood_group: '',
-    plasma: '',
-    platelet: '',
-    rbc: '',
-    whole_blood: ''
+    platelet: "",
+    plasma: "",
+    rbc: "",
+    whole_blood:"",
 }
 
 function Request(props) {
@@ -42,14 +42,15 @@ function Request(props) {
       };
     
       const handleUpdate = (e) => {
+        console.log(e)
         setValues({
           ...values,
           id: e.id,
           patient_id: e.patient_id,
           patient_name: e.patient_name,
           blood_group: e.blood_group,
-          plasma: e.plasma,
           platelet: e.platelet,
+          plasma: e.plasma,
           rbc: e.rbc,
           whole_blood: e.whole_blood
           
@@ -70,17 +71,26 @@ function Request(props) {
 
       useEffect(() => {
         if (Object.keys(errors).length === 0 && isSubmitting) {
+          const newValues = {
+            id: values.id,
+            patient_id: values.patient_id.toUpperCase(),
+            patient_name: values.patient_name,
+            blood_group: values.blood_group,
+            platelet: values.platelet,
+            plasma: values.plasma,
+            rbc: values.rbc,
+            whole_blood: values.whole_blood
+          }
+          edit ? updateRequest(newValues) : addRequest(newValues);
 
-          edit ? updateRequest(values) : addRequest(values);
-          console.log(values)
           setEdit(false);
           setValues({
             ...values,
             patient_id: "",
             patient_name: "",
             blood_group: '',
+            platelet: "",
             plasma: '',
-            platelet: '',
             rbc: '',
             whole_blood: ''
           });

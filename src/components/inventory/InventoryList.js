@@ -12,9 +12,9 @@ const InventoryList = ({handleUpdate, inventories, deleteInventory}) => {
                 <caption>List of inventories</caption>
                 <thead>
                     <tr>
-                        <th>Donor</th>
-                        <th>B. Component</th>
+                        <th>Date</th>
                         <th>B. Group</th>
+                        <th>B. Component</th>
                         <th>Unit</th>
                         <th>Bag</th>
                         <th>Action</th>
@@ -23,9 +23,11 @@ const InventoryList = ({handleUpdate, inventories, deleteInventory}) => {
                 <tbody>
                     {
                         inventories && inventories.map((inventory) => {
+                            
                             return (
+                                inventory.status === 'Stock' && (
                                 <tr key={inventory.id} id={inventory.id % 2 === 0 ? "orange" : "green"}>
-                                    <td>{inventory.donor}</td>
+                                    <td>{inventory.created_at.slice(0, 10)}</td>
                                     <td>{inventory.blood_group}</td>
                                     <td>{inventory.blood_component}</td>
                                     <td>{inventory.unit}</td>
@@ -36,6 +38,7 @@ const InventoryList = ({handleUpdate, inventories, deleteInventory}) => {
                                 </button> 
                                 </td>
                                 </tr>
+                                )
                             )
                         })
                     }

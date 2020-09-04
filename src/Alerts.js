@@ -45,6 +45,10 @@ class Alerts extends Component {
       message.deleteRequest && alert.success(message.deleteRequest);
       message.addRequest && alert.success(message.addRequest);
       message.updateRequest && alert.success(message.updateRequest);
+
+      message.deleteTake && alert.success(message.deleteTake);
+      message.addTake && alert.success(message.addTake);
+      message.updateTake && alert.success(message.updateTake);
     }
   }
 

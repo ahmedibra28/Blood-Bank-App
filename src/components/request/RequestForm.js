@@ -1,6 +1,6 @@
 import React from 'react'
 
-function InvenotoryForm({handleChange, handleSubmit, values, errors}) {
+function RequestForm({handleChange, handleSubmit, values, errors}) {
     return (
       <form onSubmit={handleSubmit} autoComplete="off">
 
@@ -17,7 +17,7 @@ function InvenotoryForm({handleChange, handleSubmit, values, errors}) {
                 onChange={handleChange}
                 type="text"
                 value={values.patient_id}
-                className="form-control py-2 autoCapitalize"
+                className="form-control py-2"
                 placeholder="Enter patient ID"
               />
             </div>
@@ -163,4 +163,4 @@ function InvenotoryForm({handleChange, handleSubmit, values, errors}) {
     )
 }
 
-export default InvenotoryForm
+export default RequestForm

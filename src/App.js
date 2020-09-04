@@ -11,6 +11,7 @@ import ChangePassword from "./components/accounts/ChangePassword";
 import ResetPassword from "./components/accounts/ResetPassword";
 import Inventory from "./components/inventory/Inventory";
 import Request from "./components/request/Request"
+import Take from "./components/taking/Take"
 
 
 import PrivateRoute from "./components/common/PrivateRoute";
@@ -66,6 +67,7 @@ function App () {
                   <Route path="/register" component={Register} />{" "}
                   <PrivateRoute path="/inventory" component={Inventory} />{" "}
                   <PrivateRoute path="/request" component={Request} />{" "}
+                  <PrivateRoute path="/taking" component={Take} />{" "}
                   <PrivateRoute
                   
                     path="/change-password"

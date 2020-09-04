@@ -31,3 +31,8 @@ export const ADD_REQUEST = "ADD_REQUEST";
 export const UPDATE_REQUEST = "UPDATE_REQUEST";
 export const DELETE_REQUEST = "DELETE_REQUEST";
 
+export const GET_TAKES = "GET_TAKES";
+export const ADD_TAKE = "ADD_TAKE";
+export const UPDATE_TAKE = "UPDATE_TAKE";
+export const DELETE_TAKE = "DELETE_TAKE";
+

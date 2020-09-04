@@ -116,7 +116,7 @@ function InvenotoryForm({handleChange, handleSubmit, values, errors}) {
                 onChange={handleChange}
                 type="text"
                 value={values.bag}
-                className="form-control py-2 autoCapitalize"
+                className="form-control py-2"
                 placeholder="Enter bag number"
               />
             </div>

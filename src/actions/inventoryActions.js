@@ -69,6 +69,7 @@ import {
   
   export const updateInventory= (inventory) => (dispatch, getState) => {
     console.log(inventory.id)
+    console.log(inventory)
     axios
       .put(
         `${URL}api/blood-store/${inventory.id}/`,
