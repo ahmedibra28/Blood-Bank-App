@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import BloodStore, BloodRequest, BloodTaking
 
+
 class BloodStoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = BloodStore

@@ -72,7 +72,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
@@ -103,4 +102,3 @@ REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'accounts.serializers.UserSerializer',
     'TOKEN_SERIALIZER': 'accounts.serializers.CustomTokenSerializer',
 }
-

@@ -9,12 +9,10 @@ import {
   REGISTER_SUCCESS,
   CHANGE_PASSWORD_SUCCESS,
   RESET_PASSWORD_SUCCESS,
-  RESET_PASSWORD_CONRIM_SUCCESS,
-  RESET_PASSWORD_CONRIM_FAILED,
-} from "../actions/types";
+} from '../actions/types';
 
 const initialState = {
-  token: localStorage.getItem("token"),
+  token: localStorage.getItem('token'),
   isAuthenticated: null,
   isLoading: false,
   user: null,
@@ -35,22 +33,22 @@ export default function (state = initialState, action) {
         user: action.payload,
       };
     case LOGIN_SUCCESS:
-    // case REGISTER_SUCCESS:
+      // case REGISTER_SUCCESS:
       // case RESET_PASSWORD_CONRIM_SUCCESS:
-        localStorage.setItem("token", action.payload.key);
+      localStorage.setItem('token', action.payload.key);
       return {
         ...state,
         ...action.payload,
         isAuthenticated: true,
         isLoading: false,
-        user: action.payload.user
+        user: action.payload.user,
       };
     case AUTH_ERROR:
     case LOGIN_FAILED:
     case REGISTER_FAILED:
     case CHANGE_PASSWORD_SUCCESS:
     case LOGOUT_SUCCESS:
-      localStorage.removeItem("token");
+      localStorage.removeItem('token');
       return {
         ...state,
         token: null,

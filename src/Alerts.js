@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from "react";
-import { withAlert } from "react-alert";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import React, { Component, Fragment } from 'react';
+import { withAlert } from 'react-alert';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class Alerts extends Component {
   static propTypes = {
@@ -22,7 +22,7 @@ class Alerts extends Component {
       error.msg.blood_group &&
         alert.error(`Blood Group: ${error.msg.blood_group}`);
       error.msg.blood_component &&
-        alert.error(`Blood Component: ${error.msg.blood_component}`);  
+        alert.error(`Blood Component: ${error.msg.blood_component}`);
       error.msg.unit && alert.error(`Unit: ${error.msg.unit}`);
       error.msg.bag && alert.error(`Bag: ${error.msg.bag}`);
       error.msg.hb && alert.error(`HB: ${error.msg.hb}`);
@@ -30,8 +30,8 @@ class Alerts extends Component {
       error.msg.plasma && alert.error(`Plasma: ${error.msg.plasma}`);
       error.msg.platelet && alert.error(`Platelet: ${error.msg.platelet}`);
       error.msg.rbc && alert.error(`RBC: ${error.msg.rbc}`);
-      error.msg.whole_blood && alert.error(`Whole blood: ${error.msg.whole_blood}`);
-
+      error.msg.whole_blood &&
+        alert.error(`Whole blood: ${error.msg.whole_blood}`);
     }
     if (message !== prevProps.message) {
       message.changePassword && alert.success(message.changePassword);

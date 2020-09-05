@@ -23,7 +23,7 @@ class BloodStore(models.Model):
 
     def __str__(self):
         return self.donor
-    
+
 
 class BloodRequest(models.Model):
     patient_id = models.CharField(max_length=10, unique=True)
@@ -38,7 +38,6 @@ class BloodRequest(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.CharField(max_length=2, blank=True, null=True)
     updated_by = models.CharField(max_length=2, blank=True, null=True)
-    
 
     def __str__(self):
         return self.patient_id
@@ -55,10 +54,6 @@ class BloodTaking(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.CharField(max_length=2, blank=True, null=True)
     updated_by = models.CharField(max_length=2, blank=True, null=True)
-    
 
     def __str__(self):
         return self.patient_id.patient_id
- 
-    
-

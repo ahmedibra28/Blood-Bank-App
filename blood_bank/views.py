@@ -6,7 +6,6 @@ from django_filters import rest_framework as filters
 from accounts.models import CustomUser
 
 
-
 class BloodStoreViewSet(viewsets.ModelViewSet):
     queryset = BloodStore.objects.all().order_by('-created_at')
     serializer_class = BloodStoreSerializer
@@ -26,11 +25,9 @@ class BloodRequestViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user.id)
-        
 
     def perform_update(self, serializer):
         serializer.save(updated_by=self.request.user.id)
-
 
 
 class BloodTakingViewSet(viewsets.ModelViewSet):

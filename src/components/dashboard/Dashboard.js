@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import InventoryForm from './InventoryForm';
-import InventoryList from './InventoryList';
-import InventoryValidate from '../../validations/InventoryValidations';
+import DashboardForm from './DashboardForm';
+import DashboardList from './DashboardList';
+import DashboardValidate from '../../validations/DashboardValidations';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
@@ -12,16 +12,11 @@ import {
 } from '../../actions/inventoryActions';
 
 const initialValues = {
-  id: null,
-  donor: '',
-  hb: '',
-  blood_group: '',
-  blood_component: '',
-  unit: '',
-  bag: '',
+  from: '',
+  to: '',
 };
 
-function Inventory(props) {
+function Dashboard(props) {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -39,23 +34,9 @@ function Inventory(props) {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  const handleUpdate = (e) => {
-    setValues({
-      ...values,
-      id: e.id,
-      donor: e.donor,
-      hb: e.hb,
-      blood_group: e.blood_group,
-      blood_component: e.blood_component,
-      unit: e.unit,
-      bag: e.bag,
-    });
-    setEdit(true);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors(InventoryValidate(values));
+    setErrors(DashboardValidate(values));
     setIsSubmitting(true);
   };
 
@@ -65,43 +46,23 @@ function Inventory(props) {
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
-      const newValues = {
-        id: values.id,
-        donor: values.donor,
-        hb: values.hb,
-        blood_group: values.blood_group,
-        blood_component: values.blood_component,
-        unit: values.unit,
-        bag: values.bag.toUpperCase(),
-      };
-
-      edit ? updateInventory(newValues) : addInventory(newValues);
-      setEdit(false);
-      setValues({
-        ...values,
-        donor: '',
-        hb: '',
-        blood_group: '',
-        blood_component: '',
-        unit: '',
-        bag: '',
-      });
+      // Search if everything is okay
+      console.log(values);
     }
   }, [errors]);
 
   return (
     <div className='row pt-4'>
-      <div className='col-md-4'>
-        <InventoryForm
+      <div className='col-md-12'>
+        <DashboardForm
           handleSubmit={handleSubmit}
           handleChange={handleChange}
           errors={errors}
           values={values}
         />
       </div>
-      <div className='col-md-8'>
-        <InventoryList
-          handleUpdate={handleUpdate}
+      <div className='col-md-12'>
+        <DashboardList
           deleteInventory={deleteInventory}
           inventories={inventories}
         />
@@ -110,7 +71,7 @@ function Inventory(props) {
   );
 }
 
-Inventory.propTypes = {
+Dashboard.propTypes = {
   getInventories: PropTypes.func.isRequired,
   addInventory: PropTypes.func.isRequired,
   deleteInventory: PropTypes.func.isRequired,
@@ -127,4 +88,4 @@ export default connect(mapStateToProps, {
   addInventory,
   updateInventory,
   deleteInventory,
-})(Inventory);
+})(Dashboard);
