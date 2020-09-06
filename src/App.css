@@ -120,3 +120,11 @@ svg {
   background-attachment: fixed;
   background-size: cover;
 }
+
+#orange {
+  border-left: solid 5px orange;
+}
+
+#green {
+  border-left: solid 5px rgb(0, 255, 128);
+}
