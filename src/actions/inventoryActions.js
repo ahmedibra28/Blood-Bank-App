@@ -1,4 +1,5 @@
 import {
+  GET_INVENTORIES_DASHBOARD,
   GET_INVENTORIES,
   ADD_INVENTORY,
   DELETE_INVENTORY,
@@ -8,6 +9,23 @@ import {
 import { createMessage, returnErrors } from './messageActions';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
+
+export const getInventoriesDashboard = (from, to) => (dispatch, getState) => {
+  axios
+    .get(
+      `${URL}api/blood-store/?created_at__date__lte=${to}&created_at__date__gte=${from}`,
+      tokenConfig(getState)
+    )
+    .then((inventories) => {
+      dispatch({
+        type: GET_INVENTORIES_DASHBOARD,
+        payload: inventories.data,
+      });
+    })
+    .catch((err) =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
+};
 
 export const getInventories = () => (dispatch, getState) => {
   axios

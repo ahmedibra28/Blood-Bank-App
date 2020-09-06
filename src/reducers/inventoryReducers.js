@@ -1,4 +1,5 @@
 import {
+  GET_INVENTORIES_DASHBOARD,
   GET_INVENTORIES,
   ADD_INVENTORY,
   DELETE_INVENTORY,
@@ -7,10 +8,16 @@ import {
 
 const initialState = {
   inventories: [],
+  inventories_filter: [],
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
+    case GET_INVENTORIES_DASHBOARD:
+      return {
+        ...state,
+        inventories_filter: action.payload,
+      };
     case GET_INVENTORIES:
       return {
         ...state,

@@ -7,7 +7,10 @@ const InventoryList = ({ handleUpdate, inventories, deleteInventory }) => {
       <hr />
       <div className='table-responsive'>
         <table className='table table-sm table-hover caption-top'>
-          <caption>List of inventories</caption>
+          <caption>
+            {' '}
+            {inventories && inventories.length} records were found
+          </caption>
           <thead>
             <tr>
               <th>Date</th>

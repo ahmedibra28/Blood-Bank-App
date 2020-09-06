@@ -4,12 +4,7 @@ import DashboardList from './DashboardList';
 import DashboardValidate from '../../validations/DashboardValidations';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {
-  getInventories,
-  addInventory,
-  deleteInventory,
-  updateInventory,
-} from '../../actions/inventoryActions';
+import { getInventoriesDashboard } from '../../actions/inventoryActions';
 
 const initialValues = {
   from: '',
@@ -22,13 +17,7 @@ function Dashboard(props) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [edit, setEdit] = useState(false);
 
-  const {
-    inventories,
-    deleteInventory,
-    getInventories,
-    addInventory,
-    updateInventory,
-  } = props;
+  const { inventories_filter, getInventoriesDashboard } = props;
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -41,12 +30,14 @@ function Dashboard(props) {
   };
 
   useEffect(() => {
-    getInventories();
+    getInventoriesDashboard(values.from, values.to);
   }, []);
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       // Search if everything is okay
+      getInventoriesDashboard(values.from, values.to);
+
       console.log(values);
     }
   }, [errors]);
@@ -62,30 +53,21 @@ function Dashboard(props) {
         />
       </div>
       <div className='col-md-12'>
-        <DashboardList
-          deleteInventory={deleteInventory}
-          inventories={inventories}
-        />
+        <DashboardList inventories_filter={inventories_filter} />
       </div>
     </div>
   );
 }
 
 Dashboard.propTypes = {
-  getInventories: PropTypes.func.isRequired,
-  addInventory: PropTypes.func.isRequired,
-  deleteInventory: PropTypes.func.isRequired,
-  updateInventory: PropTypes.func.isRequired,
-  inventories: PropTypes.array.isRequired,
+  getInventoriesDashboard: PropTypes.func.isRequired,
+  inventories_filter: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  inventories: state.inventories.inventories,
+  inventories_filter: state.inventories.inventories_filter,
 });
 
 export default connect(mapStateToProps, {
-  getInventories,
-  addInventory,
-  updateInventory,
-  deleteInventory,
+  getInventoriesDashboard,
 })(Dashboard);

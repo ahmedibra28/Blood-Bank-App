@@ -69,7 +69,7 @@ function DashboardForm({ handleChange, handleSubmit, values, errors }) {
             )}
           </div>
 
-          <div className='col-md-2'>
+          <div className='col-md-2 text-right'>
             <button type='submit' className='btn btn-primary shadow searchBtn'>
               <svg
                 viewBox='0 0 20 20'

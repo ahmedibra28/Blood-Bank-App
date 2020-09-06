@@ -6,9 +6,18 @@ from django_filters import rest_framework as filters
 from accounts.models import CustomUser
 
 
+class BloodStoreFilter(filters.FilterSet):
+    class Meta:
+        model = BloodStore
+        fields = {
+            'created_at': ['date__lte', 'date__gte']
+        }
+
+
 class BloodStoreViewSet(viewsets.ModelViewSet):
     queryset = BloodStore.objects.all().order_by('-created_at')
     serializer_class = BloodStoreSerializer
+    filterset_class = BloodStoreFilter
     # permission_classes = [permissions.IsAuthenticated]
 
     def perform_create(self, serializer):

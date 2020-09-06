@@ -7,7 +7,7 @@ const takesList = ({ handleUpdate, takes, deleteTake, patientIdToName }) => {
       <hr />
       <div className='table-responsive'>
         <table className='table table-sm table-hover caption-top'>
-          <caption>List of taken</caption>
+          <caption>{takes && takes.length} records were found</caption>
           <thead>
             <tr>
               <th>P. ID</th>

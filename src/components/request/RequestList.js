@@ -7,7 +7,7 @@ const RequestList = ({ handleUpdate, requests, deleteRequest }) => {
       <hr />
       <div className='table-responsive'>
         <table className='table table-sm table-hover caption-top'>
-          <caption>List of requests</caption>
+          <caption>{requests && requests.length} records were found</caption>
           <thead>
             <tr>
               <th>P. ID</th>
