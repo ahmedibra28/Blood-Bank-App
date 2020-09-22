@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
 const takesList = ({ handleUpdate, takes, deleteTake, patientIdToName }) => {
   return (
     <div>
-      <h3 className='text-center form-title mb-4'>Taken List</h3>
+      <h3 className="text-center form-title mb-4">Taken List</h3>
       <hr />
-      <div className='table-responsive'>
-        <table className='table table-sm table-hover caption-top'>
+      <div className="table-responsive">
+        <table className="table table-sm table-hover caption-top">
           <caption>{takes && takes.length} records were found</caption>
           <thead>
             <tr>
@@ -20,9 +20,9 @@ const takesList = ({ handleUpdate, takes, deleteTake, patientIdToName }) => {
           </thead>
           <tbody>
             {takes &&
-              takes.slice(0, 10).map((take) => {
+              takes.slice(0, 100).map((take) => {
                 return (
-                  <tr key={take.id} id={take.id % 2 === 0 ? 'orange' : 'green'}>
+                  <tr key={take.id} id={take.id % 2 === 0 ? "orange" : "green"}>
                     <td>{patientIdToName(take.patient_id)}</td>
                     <td>{take.plasma}</td>
                     <td>{take.platelet}</td>

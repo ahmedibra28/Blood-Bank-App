@@ -1,4 +1,4 @@
-export const URL = "http://192.168.8.250:80/";
+export const URL = "http://192.10.11.100:80/";
 
 export const USER_LOADING = "USER_LOADING";
 export const USER_LOADED = "USER_LOADEDAUTH_ERROR";
